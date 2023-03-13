@@ -1,7 +1,10 @@
 package stack
 
-import "testing"
-import "github.com/stretchr/testify/assert"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestStack_String(t *testing.T) {
 	var stooge string
@@ -11,6 +14,7 @@ func TestStack_String(t *testing.T) {
 	stack.Push("Curly")
 	stack.Push("Moe")
 
+	assert.False(t, stack.IsEmpty())
 	assert.Equal(t, 3, stack.Len())
 	assert.Equal(t, "Moe", stack.Peek())
 	stooge = stack.Pop()
@@ -19,8 +23,10 @@ func TestStack_String(t *testing.T) {
 	assert.Equal(t, "Curly", stooge)
 	stooge = stack.Pop()
 	assert.Equal(t, "Larry", stooge)
+	assert.True(t, stack.IsEmpty())
 	stooge = stack.Pop()
 	assert.Equal(t, "", stooge)
+	assert.True(t, stack.IsEmpty())
 }
 
 func TestStack_Int(t *testing.T) {
@@ -31,7 +37,8 @@ func TestStack_Int(t *testing.T) {
 	stack.Push(3)
 	stack.Push(1)
 	stack.Push(4)
-	
+
+	assert.False(t, stack.IsEmpty())
 	assert.Equal(t, 3, stack.Len())
 	assert.Equal(t, 4, stack.Peek())
 	digit = stack.Pop()
@@ -40,6 +47,8 @@ func TestStack_Int(t *testing.T) {
 	assert.Equal(t, 1, digit)
 	digit = stack.Pop()
 	assert.Equal(t, 3, digit)
+	assert.True(t, stack.IsEmpty())
 	digit = stack.Pop()
 	assert.Equal(t, 0, digit)
+	assert.True(t, stack.IsEmpty())
 }
