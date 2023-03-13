@@ -7,7 +7,6 @@ import (
 )
 
 func TestStack_String(t *testing.T) {
-	var stooge string
 
 	stack := NewStack[string]()
 	stack.Push("Larry")
@@ -17,21 +16,16 @@ func TestStack_String(t *testing.T) {
 	assert.False(t, stack.IsEmpty())
 	assert.Equal(t, 3, stack.Len())
 	assert.Equal(t, "Moe", stack.Peek())
-	stooge = stack.Pop()
-	assert.Equal(t, "Moe", stooge)
-	stooge = stack.Pop()
-	assert.Equal(t, "Curly", stooge)
-	stooge = stack.Pop()
-	assert.Equal(t, "Larry", stooge)
+	assert.Equal(t, "Moe", stack.Pop())
+	assert.Equal(t, "Curly", stack.Pop())
+	assert.Equal(t, "Larry", stack.Pop())
 	assert.True(t, stack.IsEmpty())
-	stooge = stack.Pop()
-	assert.Equal(t, "", stooge)
+	assert.Equal(t, "", stack.Pop())
+	assert.Equal(t, "", stack.Peek())
 	assert.True(t, stack.IsEmpty())
 }
 
 func TestStack_Int(t *testing.T) {
-
-	var digit int
 
 	stack := NewStack[int]()
 	stack.Push(3)
@@ -41,14 +35,11 @@ func TestStack_Int(t *testing.T) {
 	assert.False(t, stack.IsEmpty())
 	assert.Equal(t, 3, stack.Len())
 	assert.Equal(t, 4, stack.Peek())
-	digit = stack.Pop()
-	assert.Equal(t, 4, digit)
-	digit = stack.Pop()
-	assert.Equal(t, 1, digit)
-	digit = stack.Pop()
-	assert.Equal(t, 3, digit)
+	assert.Equal(t, 4, stack.Pop())
+	assert.Equal(t, 1, stack.Pop())
+	assert.Equal(t, 3, stack.Pop())
 	assert.True(t, stack.IsEmpty())
-	digit = stack.Pop()
-	assert.Equal(t, 0, digit)
+	assert.Equal(t, 0, stack.Pop())
+	assert.Equal(t, 0, stack.Peek())
 	assert.True(t, stack.IsEmpty())
 }
