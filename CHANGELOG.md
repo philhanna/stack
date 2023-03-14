@@ -5,16 +5,19 @@ The format is based on [Keep a Changelog].
 	
 ## [Unreleased]
 
+## [v1.2.0] - 2023-03-14
+- Added example (playground enabled)
+
 ## [v1.1.0] - 2023-03-14
 - Added `Clear` method
 - Made stack generic but items of specific types
-- Added example (playground enabled)
 
 ## [v1.0.0] - 2023-03-14
 Initial release
 
 [Semantic Versioning]: http://semver.org
 [Keep a Changelog]: http://keepachangelog.com
-[Unreleased]: https://github.com/philhanna/stack/compare/v1.1.0..HEAD
+[Unreleased]: https://github.com/philhanna/stack/compare/v1.2.0..HEAD
+[v1.2.0]: https://github.com/philhanna/stack/compare/v1.1.0..v1.2.0
 [v1.1.0]: https://github.com/philhanna/stack/compare/v1.0.0..v1.1.0
 [v1.0.0]: https://github.com/philhanna/stack/compare/551d347..v1.0.0
