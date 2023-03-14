@@ -1,6 +1,7 @@
 package stack
 
 import (
+	"math"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -48,6 +49,11 @@ func TestStack_struct_contents_same(t *testing.T) {
 
 func TestStack_map_contents_same(t *testing.T) {
 
+	classic := make(map[string]int)
+	classic["Larry"] = 2
+	classic["Curly"] = 3
+	classic["Moe"] = 1
+
 	original := make(map[string]int)
 	original["Moe"] = 1
 	original["Larry"] = 2
@@ -56,11 +62,6 @@ func TestStack_map_contents_same(t *testing.T) {
 	noCurly := make(map[string]int)
 	noCurly["Larry"] = 2
 	noCurly["Moe"] = 1
-
-	classic := make(map[string]int)
-	classic["Larry"] = 2
-	classic["Curly"] = 3
-	classic["Moe"] = 1
 
 	stack := NewStack[map[string]int]()
 	stack.Push(original)
@@ -99,4 +100,13 @@ func TestStack_map_contents_same(t *testing.T) {
 		assert.Equal(t, 2, item["Larry"])
 		assert.Equal(t, 3, item["Shemp"])
 	}
+}
+
+func TestStack_Clear(t *testing.T) {
+	stack := NewStack[float64]()
+	stack.Push(math.Pi)
+	stack.Push(math.E)
+	assert.True(t, stack.Len() == 2)
+	stack.Clear()
+	assert.True(t, stack.IsEmpty())
 }

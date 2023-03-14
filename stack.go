@@ -70,3 +70,10 @@ func (pst *Stack[T]) Peek() (T, error) {
 	result := pst.list[last]
 	return result, nil
 }
+
+// Clear removes all elements from the stack
+func (pst *Stack[T]) Clear() {
+	for !pst.IsEmpty() {
+		pst.Pop()
+	}
+}
