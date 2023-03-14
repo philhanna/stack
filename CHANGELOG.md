@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog].
 ## [v1.1.0] - 2023-03-14
 - Added `Clear` method
 - Made stack generic but items of specific types
+- Added example (playground enabled)
 
 ## [v1.0.0] - 2023-03-14
 Initial release

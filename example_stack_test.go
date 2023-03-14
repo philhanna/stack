@@ -1,7 +1,8 @@
-package stack
+package stack_test
 
 import (
 	"fmt"
+	"github.com/philhanna/stack"
 )
 
 // ExampleStack illustrates how to use the Stack type.
@@ -10,7 +11,7 @@ func ExampleStack() {
 	var item string
 
 	// Create a stack for strings
-	sst := NewStack[string]()
+	sst := stack.NewStack[string]()
 
 	// Push three strings on the stack
 	sst.Push("A")
