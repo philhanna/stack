@@ -72,7 +72,7 @@ func TestStack_map_contents_same(t *testing.T) {
 
 	var item map[string]int
 	var err error
-	
+
 	if item, err = stack.Pop(); err != nil {
 		t.Error(err)
 	} else {
@@ -81,7 +81,7 @@ func TestStack_map_contents_same(t *testing.T) {
 		assert.Equal(t, 2, item["Larry"])
 		assert.Equal(t, 3, item["Curly"])
 	}
-	
+
 	if item, err = stack.Pop(); err != nil {
 		t.Error(err)
 	} else {
@@ -91,7 +91,7 @@ func TestStack_map_contents_same(t *testing.T) {
 		_, ok := item["Curly"]
 		assert.False(t, ok)
 	}
-	
+
 	if item, err = stack.Pop(); err != nil {
 		t.Error(err)
 	} else {
