@@ -8,7 +8,7 @@ import "errors"
 
 // Stack is a LIFO list of items.
 type Stack[T any] struct {
-	list []T
+	List []T
 }
 
 // ---------------------------------------------------------------------
@@ -33,7 +33,7 @@ var ErrorStackEmpty = errors.New("Stack empty")
 
 // Len returns the number of items in the stack.
 func (pst *Stack[T]) Len() int {
-	return len(pst.list)
+	return len(pst.List)
 }
 
 // IsEmpty returns true if the stack depth is zero.
@@ -43,7 +43,7 @@ func (pst *Stack[T]) IsEmpty() bool {
 
 // Push appends an item onto the stack.
 func (pst *Stack[T]) Push(item T) {
-	pst.list = append(pst.list, item)
+	pst.List = append(pst.List, item)
 }
 
 // Pop removes the topmost item from the stack and returns it. If the
@@ -54,8 +54,8 @@ func (pst *Stack[T]) Pop() (T, error) {
 		return *empty, ErrorStackEmpty
 	}
 	last := pst.Len() - 1
-	result := pst.list[last]
-	pst.list = pst.list[:last]
+	result := pst.List[last]
+	pst.List = pst.List[:last]
 	return result, nil
 }
 
@@ -67,7 +67,7 @@ func (pst *Stack[T]) Peek() (T, error) {
 		return *empty, ErrorStackEmpty
 	}
 	last := pst.Len() - 1
-	result := pst.list[last]
+	result := pst.List[last]
 	return result, nil
 }
 

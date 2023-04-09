@@ -110,3 +110,33 @@ func TestStack_Clear(t *testing.T) {
 	stack.Clear()
 	assert.True(t, stack.IsEmpty())
 }
+
+func TestStack_FromSlice(t *testing.T) {
+	stack := NewStack[string]()
+	stack.Push("Larry")
+	stack.Push("Curly")
+	stack.Push("Moe")
+	list := stack.List
+	assert.Equal(t, 3, len(list))
+	assert.Equal(t, "Larry", list[0])
+	assert.Equal(t, "Curly", list[1])
+	assert.Equal(t, "Moe", list[2])
+}
+
+func TestStack_ToSlice(t *testing.T) {
+	stack := NewStack[string]()
+	stack.Push("Larry")
+	stack.Push("Curly")
+	stack.Push("Moe")
+	list := []string{
+		"Joe",
+		"Smith",
+	}
+	stack.List = list
+	assert.Equal(t, 2, stack.Len())
+	entry, _ := stack.Pop()
+	assert.Equal(t, "Smith", entry)
+	entry, _ = stack.Pop()
+	assert.Equal(t, "Joe", entry)
+
+}
