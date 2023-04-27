@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog].
 	
 ## [Unreleased]
 
+## [v1.4.0] - 2023-04-27
+- Added `Reverse` method
+
 ## [v1.3.0] - 2023-04-09
 - Allowed stack contents to be treated as a list
 
@@ -20,7 +23,8 @@ Initial release
 
 [Semantic Versioning]: http://semver.org
 [Keep a Changelog]: http://keepachangelog.com
-[Unreleased]: https://github.com/philhanna/stack/compare/v1.3.0..HEAD
+[Unreleased]: https://github.com/philhanna/stack/compare/v1.4.0..HEAD
+[v1.4.0]: https://github.com/philhanna/stack/compare/v1.3.0..v1.4.0
 [v1.3.0]: https://github.com/philhanna/stack/compare/v1.2.0..v1.3.0
 [v1.2.0]: https://github.com/philhanna/stack/compare/v1.1.0..v1.2.0
 [v1.1.0]: https://github.com/philhanna/stack/compare/v1.0.0..v1.1.0

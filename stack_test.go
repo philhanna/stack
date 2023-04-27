@@ -140,7 +140,25 @@ func TestStack_ToSlice(t *testing.T) {
 	assert.Equal(t, "Joe", entry)
 }
 
-func TestStack_Reverse(t *testing.T) {
+func TestStack_ReverseOdd(t *testing.T) {
+	stack := NewStack[string]()
+
+	stack.Push("Yesterday")
+	stack.Push("Tomorrow")
+
+	stack.Reverse()
+
+	want := []string{"Yesterday", "Tomorrow"}
+	have := make([]string, 0)
+	for !stack.IsEmpty() {
+		s, _ := stack.Pop()
+		have = append(have, s)
+	}
+
+	assert.Equal(t, want, have)
+}
+
+func TestStack_ReverseEven(t *testing.T) {
 	stack := NewStack[string]()
 
 	stack.Push("Larry")
@@ -157,4 +175,16 @@ func TestStack_Reverse(t *testing.T) {
 	}
 
 	assert.Equal(t, want, have)
+}
+
+func TestStack_BadPeek(t *testing.T) {
+	stack := NewStack[float64]()
+	_, err := stack.Peek()
+	assert.NotNil(t, err)
+}
+
+func TestStack_BadPop(t *testing.T) {
+	stack := NewStack[float64]()
+	_, err := stack.Pop()
+	assert.NotNil(t, err)
 }
