@@ -3,7 +3,7 @@
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/philhanna/stack)][idPkgGoDev]
 
 
-Package for operating on LIFO stacks.
+Go library for operating on LIFO stacks.
 
 ## References
 
