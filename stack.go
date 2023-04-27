@@ -31,7 +31,7 @@ var ErrorStackEmpty = errors.New("Stack empty")
 // Methods
 // ---------------------------------------------------------------------
 
-// Clear removes all elements from the stack
+// Clear removes all elements from the stack.
 func (pst *Stack[T]) Clear() {
 	for !pst.IsEmpty() {
 		pst.Pop()
@@ -61,7 +61,7 @@ func (pst *Stack[T]) Peek() (T, error) {
 }
 
 // Pop removes the topmost item from the stack and returns it. If the
-// stack is empty, returns an error
+// stack is empty, returns an error.
 func (pst *Stack[T]) Pop() (T, error) {
 	empty := new(T)
 	if pst.IsEmpty() {
@@ -76,4 +76,11 @@ func (pst *Stack[T]) Pop() (T, error) {
 // Push appends an item onto the stack.
 func (pst *Stack[T]) Push(item T) {
 	pst.List = append(pst.List, item)
+}
+
+// Reverse reorders the stack contents in reverse order.
+func (pst *Stack[T]) Reverse() {
+	for i, j := 0, len(pst.List)-1; i < j; i, j = i+1, j-1 {
+		pst.List[i], pst.List[j] = pst.List[j], pst.List[i]
+	}
 }

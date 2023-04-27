@@ -138,5 +138,23 @@ func TestStack_ToSlice(t *testing.T) {
 	assert.Equal(t, "Smith", entry)
 	entry, _ = stack.Pop()
 	assert.Equal(t, "Joe", entry)
+}
 
+func TestStack_Reverse(t *testing.T) {
+	stack := NewStack[string]()
+	
+	stack.Push("Larry")
+	stack.Push("Curly")
+	stack.Push("Moe")
+
+	stack.Reverse()
+
+	want := []string{"Larry", "Curly", "Moe"}
+	have := make([]string, 0)
+	for !stack.IsEmpty() {
+		s, _ := stack.Pop()
+		have = append(have, s)
+	}
+
+	assert.Equal(t, want, have)
 }
