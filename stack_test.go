@@ -142,7 +142,7 @@ func TestStack_ToSlice(t *testing.T) {
 
 func TestStack_Reverse(t *testing.T) {
 	stack := NewStack[string]()
-	
+
 	stack.Push("Larry")
 	stack.Push("Curly")
 	stack.Push("Moe")
