@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog].
 	
 ## [Unreleased]
 
+## [v1.5.0] - 2023-04-27
+- Added `FromJSON` and `ToJSON` methods
+
 ## [v1.4.0] - 2023-04-27
 - Added `Reverse` method
 
@@ -23,7 +26,8 @@ Initial release
 
 [Semantic Versioning]: http://semver.org
 [Keep a Changelog]: http://keepachangelog.com
-[Unreleased]: https://github.com/philhanna/stack/compare/v1.4.0..HEAD
+[Unreleased]: https://github.com/philhanna/stack/compare/v1.5.0..HEAD
+[v1.5.0]: https://github.com/philhanna/stack/compare/v1.4.0..v1.5.0
 [v1.4.0]: https://github.com/philhanna/stack/compare/v1.3.0..v1.4.0
 [v1.3.0]: https://github.com/philhanna/stack/compare/v1.2.0..v1.3.0
 [v1.2.0]: https://github.com/philhanna/stack/compare/v1.1.0..v1.2.0
