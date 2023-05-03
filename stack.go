@@ -1,6 +1,9 @@
 package stack
 
-import "errors"
+import (
+	"encoding/json"
+	"errors"
+)
 
 // ---------------------------------------------------------------------
 // Type definitions
@@ -36,6 +39,12 @@ func (pst *Stack[T]) Clear() {
 	for !pst.IsEmpty() {
 		pst.Pop()
 	}
+}
+
+// Recreates a stack from a JSON representation.
+func (pst *Stack[T]) FromJSON(jsonBlob []byte) error {
+	err := json.Unmarshal(jsonBlob, &pst.List)
+	return err
 }
 
 // IsEmpty returns true if the stack depth is zero.
@@ -83,4 +92,10 @@ func (pst *Stack[T]) Reverse() {
 	for i, j := 0, len(pst.List)-1; i < j; i, j = i+1, j-1 {
 		pst.List[i], pst.List[j] = pst.List[j], pst.List[i]
 	}
+}
+
+// ToJSON serializes the stack as JSON
+func (pst *Stack[T]) ToJSON() ([]byte, error) {
+	jsonBlob, err := json.Marshal(pst.List)
+	return jsonBlob, err
 }
